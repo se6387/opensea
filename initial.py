@@ -6,8 +6,7 @@ def extractLinkRegEx(txt):
     return [match[1] for match in tgs.findall(txt)]
 
 # opensea.io
-# edfreitas.me
 # https://quotes.toscrape.com/
 
-r = requests.get('https://quotes.toscrape.com/') 
+r = requests.get('https://opensea.io') 
 print(extractLinkRegEx(r.text))
