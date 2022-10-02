@@ -13,7 +13,7 @@ def main():
     # edfreitas.me
     # quotes.toscrape.com
 
-    webToCrawl = 'https://opensea.io'
+    webToCrawl = 'https://edfreitas.me'
     response = web_response.getWebResponse(webToCrawl)
     print('crawling : ', webToCrawl, ' ..', sep='')
 
@@ -39,8 +39,13 @@ def main():
 
     # filter crawling from beautiful soup
     print('')
-    print('filtered crawling ..')
-    filter_crawling.printListWithFilter(beautiful_soup_parser.extractLinksBeautifulSoup(response.text), ['articles'])
+    print('filtered crawling with beautiful soup ..')
+    filter_crawling.printListWithFilter(beautiful_soup_parser.extractLinksBeautifulSoup(response.text), ['pluralsight.'])
+
+    # follow list
+    print('')
+    print('follow list ..')
+    filter_crawling.followList(beautiful_soup_parser.extractLinksBeautifulSoup(response.text), ['pluralsight.'], False)
 
 main()
 
