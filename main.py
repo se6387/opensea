@@ -4,7 +4,8 @@ import extract_links_regex
 import extract_links_lxml
 import html_parser
 import beautiful_soup_parser
-
+import bs_execution_time
+import filter_crawling
 
 def main():
     # webs to crawl ..
@@ -36,4 +37,14 @@ def main():
     print('using beautiful soup parser ..')
     print_lists.printLists(beautiful_soup_parser.extractLinksBeautifulSoup(response.text))
 
+    # filter crawling from beautiful soup
+    print('')
+    print('filtered crawling ..')
+    filter_crawling.printListWithFilter(beautiful_soup_parser.extractLinksBeautifulSoup(response.text), ['articles'])
+
 main()
+
+# check the time it takes to execute bs
+print('\n')
+print('checking the execution time of beautiful soap ..')
+bs_execution_time.executionTime()
