@@ -1,32 +1,16 @@
-import requests
-import re
-import lxml.html
+import extract_links_regex
+import extract_links_lxml
+import print_lists
+import web_response
 
-def extractLinkRegEx(txt):
-    tgs = re.compile(r'<a[^<>]+?href=([\'\"])(.*?)\1', re.IGNORECASE)
-    return [match[1] for match in tgs.findall(txt)]
-
-# use lxml parser
-def extractLinkslLxml(text):
-    lists = []
-    dom = lxml.html.fromstring(text)
-    for list in dom.xpath('//a/@href'):
-        lists.append(list)
-    
-    return lists
-
-# print line by line
-def printList(lists):
-    for list in lists:
-        print ('Level 1 -> ' + list)
-
+# webs to crawl ..
 # opensea.io
 # edfreitas.me
-# https://quotes.toscrape.com/
+# quotes.toscrape.com
 
-r = requests.get('https://opensea.io') 
-printList(extractLinkRegEx(r.text))
+response = web_response.getWebResponse('https://opensea.io')
+print_lists.printLists(extract_links_regex.extractLinksRegEx(response.text))
 
 #
 print('')
-printList(extractLinkslLxml(r.text))
+print_lists.printLists(extract_links_lxml.extractLinksLxml(response.text))
