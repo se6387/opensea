@@ -3,6 +3,7 @@ import print_lists
 import extract_links_regex
 import extract_links_lxml
 import html_parser
+import beautiful_soup_parser
 
 
 def main():
@@ -28,6 +29,11 @@ def main():
     # html parser
     print('')
     print('using html ..')
-    print_lists.printLists(html_parser.extractLinksHtmlParser(response.text))
+    print_lists.printLists(html_parser.extractLinksHtml(response.text))
+
+    #beautiful soup parser
+    print('')
+    print('using beautiful soup parser ..')
+    print_lists.printLists(beautiful_soup_parser.extractLinksBeautifulSoup(response.text))
 
 main()
