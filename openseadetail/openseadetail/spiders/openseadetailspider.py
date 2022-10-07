@@ -59,17 +59,29 @@ class OpenSeaDetailSpider(scrapy.Spider):
         openSeaDetailsItem = OpenSeaDetailItem()
         f = open(self.fileName + self.fileExtension, 'x')
         f.write('scrapping started ..')
+        f.write('')
+        f.write(response.css('div.sc-29427738-0 a::text'))
+
+        for res in response.css('div.sc-29427738-0 a::text'):
+            yield response.follow(res.get(), cb = self.parseDetails())
 
         # div.sc-29427738-0.dVNeWL  # sc-29427738-0 dVNeWL  assets-item-asset-details > div > div > div
-        for details in response.css('div.sc-29427738-0.dVNeWL'):
-            openSeaDetailsItem['cati'] = details.css('span.sc-29427738-0.sc-bdnxRM.sc-37c1b040-1.dVNeWL.kdkxCj.klapes > a.sc-1f719d57-0.fKAlPV::text').extract()
+        # for details in response.css('div.sc-29427738-0'):
+            # openSeaDetailsItem['cati'] = details.css('span.sc-29427738-0.sc-bdnxRM.sc-37c1b040-1.dVNeWL.kdkxCj.klapes > a.sc-1f719d57-0.fKAlPV::text').extract()
             # openSeaDetailsItem['tsbcluce'] = details.css('span.sc-29427738-0.sc-bdnxRM.sc-37c1b040-1.dVNeWL.kdkxCj.klapes::text').extract()
             
             # openSeaDetailsItem['contractAddress'] = re.sub(r'[^\x00-\x7f]', r'', details.css('a.sc-1f719d57-0.fKAlPV::text').extract_first())
             # openSeaDetailsItem['contractAddress'] = details.css('a.sc-1f719d57-0 fKAlPV::text').extract_first()
             # openSeaDetailsItem['tokenId'] = details.css('div.sc-29427738-0 > span.sc-29427738-0::text').extract_first()
 
-            self.writeToFile(openSeaDetailsItem)
+            # self.writeToFile(openSeaDetailsItem)
+
+    def parseDetails(self, response):
+        for item in response.css('div.sc-29427738-0 a::text'):
+            yield {
+                'Contact Address': item.css('sc-1f719d57-0').get().strip(),
+                'Toekn Id': item.css('sc-29427738-0 sc-bdnxRM sc-37c1b040-1 dVNeWL kdkxCj klapes').get().strip()
+            }
 
     def parse(self, response):
         self.extractData(response)
