@@ -3,4 +3,4 @@ __pycache__/
 
 #
 openseadetails.txt
-quotes.toscrape.txt
+quotes/quotes.toscrape.txt
