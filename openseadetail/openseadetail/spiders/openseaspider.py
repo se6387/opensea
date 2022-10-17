@@ -12,7 +12,7 @@ class OpenSeaSpider(scrapy.Spider):
     def parse(self, response):
         item = response.css('div.sc-29427738-0')
         yield {
-            'Contact Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
+            'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
             'Token Id': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
             'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
             'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
