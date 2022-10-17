@@ -12,10 +12,10 @@ class OpenSeaSpider(scrapy.Spider):
     def parse(self, response):
         item = response.css('div.sc-29427738-0')
         yield {
-            'contactAddress': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
-            'tokenId': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
-            'tokenStandard': item.css('span.sc-29427738-0::text').extract()[0],
-            'blockChain': item.css('span.sc-29427738-0::text').extract()[1],
-            'lastUpdated': item.css('span.sc-29427738-0::text').extract()[2],
-            'creatorEarnings': item.css('span.sc-29427738-0::text').extract()[3]
+            'Contact Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
+            'Token Id': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
+            'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
+            'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
+            'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
+            'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[3]
         }
