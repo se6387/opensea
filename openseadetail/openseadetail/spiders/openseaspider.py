@@ -5,11 +5,7 @@ class OpenSeaSpider(scrapy.Spider):
     allowed_domains = [
         'opensea.io'
     ]
-    # start_urls = [
-    #     'https://opensea.io/assets/ethereum/0x394e3d3044fc89fcdd966d3cb35ac0b32b0cda91/8175',
-    #     'https://opensea.io/assets/ethereum/0x394e3d3044fc89fcdd966d3cb35ac0b32b0cda91/5388',
-    #     'https://opensea.io/assets/ethereum/0xaea4fa9451f527d5f36e65f833d88dbb56a0c264/1831'
-    # ]
+    
     with open('starturls.txt', 'rt') as f:
         start_urls = [url.strip() for url in f.readlines()]
 
