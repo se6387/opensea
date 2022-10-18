@@ -9,9 +9,10 @@ class OpenSeaDetailItem(scrapy.Item):
     # token standard, block chain, last updated, & creator earnings
     tsbcluce = scrapy.Field()
     
-    # contractAddress = scrapy.Field()
-    # tokenId = scrapy.Field()
-    # tokenStandard = scrapy.Field()
-    # blockChain = scrapy.Field()
-    # lastUpdated = scrapy.Field()
-    # creatorEarnings = scrapy.Field()
+    #
+    contractAddress = scrapy.Field()
+    tokenID = scrapy.Field()
+    tokenStandard = scrapy.Field()
+    blockChain = scrapy.Field()
+    lastUpdated = scrapy.Field()
+    creatorEarnings = scrapy.Field()
