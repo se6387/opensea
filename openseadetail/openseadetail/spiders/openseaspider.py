@@ -13,6 +13,13 @@ class OpenSeaSpider(scrapy.Spider):
     with open('starturls.txt', 'rt') as f:
         start_urls = [url.strip() for url in f.readlines()]
 
+    def deleteFileIfExist(self):
+        if os.path.exists('openseadetail.txt'):
+            os.remove('openseadetail.txt')
+
+    def __init__(self):
+        self.deleteFileIfExist()
+
     def writeToFile(self, openSeaDetailItem):
         with codecs.open('openseadetail.txt', 'a+', 'utf-8') as f:
             f.write('Contract Address : ' + openSeaDetailItem['contractAddress'] + '\r\n')
