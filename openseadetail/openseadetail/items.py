@@ -13,6 +13,6 @@ class OpenSeaDetailItem(scrapy.Item):
     contractAddress = scrapy.Field()
     tokenID = scrapy.Field()
     tokenStandard = scrapy.Field()
-    blockChain = scrapy.Field()
+    chain = scrapy.Field()
     lastUpdated = scrapy.Field()
     creatorEarnings = scrapy.Field()
