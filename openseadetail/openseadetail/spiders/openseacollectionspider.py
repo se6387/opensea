@@ -49,24 +49,6 @@ class OpenSeaCollectionSpider(scrapy.Spider):
         openSeaDetailItem = OpenSeaDetailItem()
         item = response.css('div.sc-29427738-0')
 
-        # yield {
-        #         'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
-        #         'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
-        #         'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
-        #         'Chain': item.css('span.sc-29427738-0::text').extract()[1],
-        #         'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
-        #         'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[2]
-        #     }
-
-        # openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0]
-        # openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
-        # openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
-        # openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
-        # openSeaDetailItem['lastUpdated'] = item.css('span.sc-29427738-0::text').extract()[2]
-        # openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[2]
-
-        # self.writeToFile(openSeaDetailItem)
-
         yield {
             'LP': item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()
         }
@@ -115,23 +97,4 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             
         for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
                 yield response.follow(link.get(), callback = self.parseurls)
-        
-        # yield {
-        #     'response' : (response).css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)')
-        # }
-        
-        # if (response).css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)') is NONE:
-        #     yield {
-        #         'scraped links': len(response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'))
-        #     }
-        # else:
-        #     yield {
-        #         'scraped links': len(response.css('article.sc-d72d0ead-4').css('a.sc-1f719d57-0::attr(href)'))
-        #     }
-
-        # if (response).css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)') is NONE:
-        #     for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
-        #         yield response.follow(link.get(), callback = self.parseurls)
-        # else:
-        #     for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
-        #         yield response.follow(link.get(), callback = self.parseurls)
+                
