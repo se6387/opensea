@@ -1,6 +1,6 @@
 import codecs
 import os
-from pickle import NONE
+from pickle import NONE, TRUE
 from pyexpat.errors import codes
 from sys import flags
 import scrapy
@@ -8,7 +8,7 @@ import scrapy
 from openseadetail.items import OpenSeaDetailItem
 
 class OpenSeaCollectionSpider(scrapy.Spider):
-    flag = False
+    flag = True
     name = 'openseacollectionspider'
     urlToScrape = 'opensea.io'
     allowed_domains = [
@@ -42,9 +42,6 @@ class OpenSeaCollectionSpider(scrapy.Spider):
 
             f.write('Creator Earnings : ' + openSeaDetailItem['creatorEarnings'] + '\r\n\n\n')
 
-            flag = False
-
-
     def parseurls(self, response):
         openSeaDetailItem = OpenSeaDetailItem()
         item = response.css('div.sc-29427738-0')
@@ -54,7 +51,6 @@ class OpenSeaCollectionSpider(scrapy.Spider):
         }
 
         if item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()[8] == 'Last Updated':
-
             global flag
             flag = True
             yield {
@@ -75,6 +71,8 @@ class OpenSeaCollectionSpider(scrapy.Spider):
 
             self.writeToFile(openSeaDetailItem)
         else:
+            flag = False
+
             yield {
                 'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
                 'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
@@ -97,4 +95,3 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             
         for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
             yield response.follow(link.get(), callback = self.parseurls)
-            
