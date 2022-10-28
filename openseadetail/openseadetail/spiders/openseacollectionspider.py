@@ -96,5 +96,5 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             }
             
         for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
-                yield response.follow(link.get(), callback = self.parseurls)
-                
+            yield response.follow(link.get(), callback = self.parseurls)
+            
