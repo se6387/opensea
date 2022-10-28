@@ -1,11 +1,14 @@
 import codecs
 import os
+from pickle import NONE
 from pyexpat.errors import codes
+from sys import flags
 import scrapy
 
 from openseadetail.items import OpenSeaDetailItem
 
 class OpenSeaCollectionSpider(scrapy.Spider):
+    flag = False
     name = 'openseacollectionspider'
     urlToScrape = 'opensea.io'
     allowed_domains = [
@@ -31,37 +34,104 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             f.write('Contract Address : ' + openSeaDetailItem['contractAddress'] + '\r\n')
             f.write('Token ID : ' + openSeaDetailItem['tokenID'] + '\r\n')
             f.write('Token Standard : ' + openSeaDetailItem['tokenStandard'] + '\r\n')
-            f.write('Blockchain : ' + openSeaDetailItem['blockChain'] + '\r\n')
-            f.write('Last Updated : ' + openSeaDetailItem['lastUpdated'] + '\r\n')
+            f.write('Chain : ' + openSeaDetailItem['chain'] + '\r\n')
+
+            global flag
+            if flag:
+                f.write('Last Updated : ' + openSeaDetailItem['lastUpdated'] + '\r\n')
+
             f.write('Creator Earnings : ' + openSeaDetailItem['creatorEarnings'] + '\r\n\n\n')
+
+            flag = False
+
 
     def parseurls(self, response):
         openSeaDetailItem = OpenSeaDetailItem()
         item = response.css('div.sc-29427738-0')
 
+        # yield {
+        #         'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
+        #         'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
+        #         'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
+        #         'Chain': item.css('span.sc-29427738-0::text').extract()[1],
+        #         'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
+        #         'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[2]
+        #     }
+
+        # openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0]
+        # openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
+        # openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
+        # openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
+        # openSeaDetailItem['lastUpdated'] = item.css('span.sc-29427738-0::text').extract()[2]
+        # openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[2]
+
+        # self.writeToFile(openSeaDetailItem)
+
         yield {
-            'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
-            'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
-            'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
-            'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
-            'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
-            'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[3]
+            'LP': item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()
         }
 
-        openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0]
-        openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
-        openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
-        openSeaDetailItem['blockChain'] = item.css('span.sc-29427738-0::text').extract()[1]
-        openSeaDetailItem['lastUpdated'] = item.css('span.sc-29427738-0::text').extract()[2]
-        openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[3]
+        if item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()[8] == 'Last Updated':
 
-        self.writeToFile(openSeaDetailItem)
+            global flag
+            flag = True
+            yield {
+                'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
+                'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
+                'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
+                'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
+                'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
+                'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[3]
+            }
+
+            openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0]
+            openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
+            openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
+            openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
+            openSeaDetailItem['lastUpdated'] = item.css('span.sc-29427738-0::text').extract()[2]
+            openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[3]
+
+            self.writeToFile(openSeaDetailItem)
+        else:
+            yield {
+                'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0],
+                'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
+                'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
+                'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
+                'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[2]
+            }
+            openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[0]
+            openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
+            openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
+            openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
+            openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[2]
+
+            self.writeToFile(openSeaDetailItem)
 
     def parse(self, response):
         yield {
-            'scraped links': len(response.css('article.sc-d72d0ead-4').css('a.sc-1f719d57-0::attr(href)'))
-        }
-
-        for link in response.css('article.sc-d72d0ead-4').css('a.sc-1f719d57-0::attr(href)'):
-            yield response.follow(link.get(), callback = self.parseurls)
+                'scraped links': len(response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'))
+            }
             
+        for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
+                yield response.follow(link.get(), callback = self.parseurls)
+        
+        # yield {
+        #     'response' : (response).css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)')
+        # }
+        
+        # if (response).css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)') is NONE:
+        #     yield {
+        #         'scraped links': len(response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'))
+        #     }
+        # else:
+        #     yield {
+        #         'scraped links': len(response.css('article.sc-d72d0ead-4').css('a.sc-1f719d57-0::attr(href)'))
+        #     }
+
+        # if (response).css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)') is NONE:
+        #     for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
+        #         yield response.follow(link.get(), callback = self.parseurls)
+        # else:
+        #     for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
+        #         yield response.follow(link.get(), callback = self.parseurls)
