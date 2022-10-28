@@ -1,151 +1,140 @@
-Contract Address : 0xb83c...546e
-Token ID : 6060
+Contract Address : 0x34d8...e258
+Token ID : 72092
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : yesterday
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 6275
+Contract Address : 0x34d8...e258
+Token ID : 62440
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 6162
+Contract Address : 0x34d8...e258
+Token ID : 68466
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 4782
+Contract Address : 0x34d8...e258
+Token ID : 97984
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 4900
+Contract Address : 0x34d8...e258
+Token ID : 80697
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 4393
+Contract Address : 0x34d8...e258
+Token ID : 80997
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 1658
+Contract Address : 0x34d8...e258
+Token ID : 86267
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 3664
+Contract Address : 0x34d8...e258
+Token ID : 48167
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 6066
+Contract Address : 0x34d8...e258
+Token ID : 89237
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 1565
+Contract Address : 0x34d8...e258
+Token ID : 47342
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 763
+Contract Address : 0x34d8...e258
+Token ID : 69242
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 5941
+Contract Address : 0x34d8...e258
+Token ID : 81661
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 6220
+Contract Address : 0x34d8...e258
+Token ID : 48241
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 1564
+Contract Address : 0x34d8...e258
+Token ID : 53399
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 704
+Contract Address : 0x34d8...e258
+Token ID : 48593
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 2902
+Contract Address : 0x34d8...e258
+Token ID : 65690
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 762
+Contract Address : 0x34d8...e258
+Token ID : 86563
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 604
+Contract Address : 0x34d8...e258
+Token ID : 84432
 Token Standard : ERC-721
 Chain : Ethereum
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 3060
+Contract Address : 0x34d8...e258
+Token ID : 58121
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
-Contract Address : 0xb83c...546e
-Token ID : 6399
+Contract Address : 0x34d8...e258
+Token ID : 68099
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 2 days ago
-Creator Earnings : 6.5%
+Creator Earnings : 5%
 
 
