@@ -1,8 +1,6 @@
 import codecs
 import os
-from pickle import NONE, TRUE
-from pyexpat.errors import codes
-from sys import flags
+
 import scrapy
 
 from openseadetail.items import OpenSeaDetailItem
