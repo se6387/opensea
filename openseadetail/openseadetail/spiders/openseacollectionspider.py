@@ -1,6 +1,5 @@
 import codecs
 import os
-
 import scrapy
 
 from openseadetail.items import OpenSeaDetailItem
