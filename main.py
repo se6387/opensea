@@ -51,5 +51,5 @@ main()
 
 # check the time it takes to execute bs
 print('\n')
-print('checking the execution time of beautiful soap ..')
+print('checking the execution time of beautiful soup ..')
 bs_execution_time.executionTime()
