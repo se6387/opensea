@@ -43,10 +43,6 @@ class OpenSeaCollEtherSpider(scrapy.Spider):
         openSeaDetailItem = OpenSeaDetailItem()
         item = response.css('div.sc-29427738-0')
 
-        yield {
-            'LP': item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()
-        }
-
         if item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()[8] == 'Last Updated':
             global flag
             flag = True
@@ -87,9 +83,9 @@ class OpenSeaCollEtherSpider(scrapy.Spider):
 
     def parse(self, response):
         yield {
-                'scraped links': len(response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'))
+                'scraped links': len(response.css('article.sc-a65846b6-6').css('a.sc-1f719d57-0::attr(href)'))
             }
             
-        for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
+        for link in response.css('article.sc-a65846b6-6').css('a.sc-1f719d57-0::attr(href)'):
             yield response.follow(link.get(), callback = self.parseurls)
             
