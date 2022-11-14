@@ -4,7 +4,7 @@ import scrapy
 
 from openseadetail.items import OpenSeaDetailItem
 
-class OpenSeaCollectionSpider(scrapy.Spider):
+class OpenSeaCollEtherSpider(scrapy.Spider):
     flag = True
     name = 'openseacolletherspider'
     urlToScrape = 'opensea.io'
