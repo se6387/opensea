@@ -6,6 +6,8 @@ from openseadetail.items import OpenSeaDetailItem
 
 class OpenSeaCollectionSpider(scrapy.Spider):
     flag = True
+    etherCount = 0
+
     name = 'openseanftspider'
     urlToScrape = 'opensea.io'
     allowed_domains = [
@@ -15,11 +17,8 @@ class OpenSeaCollectionSpider(scrapy.Spider):
     with open('openseacollection.txt', 'rt') as f:
         collection_name = f.readline()
     
-    # start_urls = [
-    #     'https://' + urlToScrape + '/' + collection_name
-    # ]
     start_urls = [
-        'https://' + urlToScrape
+        'https://' + urlToScrape + '/' + collection_name
     ]
 
     def deleteFileIfExists(self):
@@ -35,16 +34,16 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             f.write('Token ID : ' + openSeaDetailItem['tokenID'] + '\r\n')
             f.write('Token Standard : ' + openSeaDetailItem['tokenStandard'] + '\r\n')
             f.write('Chain : ' + openSeaDetailItem['chain'] + '\r\n')
-            f.write('Last Updated : ' + openSeaDetailItem['lastUpdated'] + '\r\n')
+
+            global flag
+            if flag:
+                f.write('Last Updated : ' + openSeaDetailItem['lastUpdated'] + '\r\n')
+
             f.write('Creator Earnings : ' + openSeaDetailItem['creatorEarnings'] + '\r\n\n\n')
 
-    def parseurls(self, response):
+    def parseCollection(self, response):
         openSeaDetailItem = OpenSeaDetailItem()
         item = response.css('div.sc-29427738-0')
-
-        yield {
-            'LP': item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()
-        }
 
         if item.css('div.sc-29427738-0').css('div.sc-29427738-0::text').extract()[8] == 'Last Updated':
             global flag
@@ -53,7 +52,7 @@ class OpenSeaCollectionSpider(scrapy.Spider):
                 'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0],
                 'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
                 'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
-                'Chain': item.css('span.sc-29427738-0::text').extract()[1],
+                'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
                 'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
                 'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[3]
             }
@@ -73,7 +72,7 @@ class OpenSeaCollectionSpider(scrapy.Spider):
                 'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0],
                 'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
                 'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
-                'Chain': item.css('span.sc-29427738-0::text').extract()[1],
+                'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
                 'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[2]
             }
             openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
@@ -83,45 +82,30 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[2]
 
             self.writeToFile(openSeaDetailItem)
-    def parseEthereum(self, response):
-        openSeaDetailItem = OpenSeaDetailItem()
-        item = response.css('div.sc-29427738-0')
 
+            print('ether count : ', etherCount)
+            if etherCount == 1:
+                yield {
+                    'ether scan': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
+                }
+
+    def parseEtherScan(Self, response):
         yield {
-                'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0],
-                'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
-                'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
-                'Chain': item.css('span.sc-29427738-0::text').extract()[1],
-                'Last Updated': item.css('span.sc-29427738-0::text').extract()[2],
-                'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[3]
-            }
-
-        openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
-        openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
-        openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
-        openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
-        openSeaDetailItem['lastUpdated'] = item.css('span.sc-29427738-0::text').extract()[2]
-        openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[3]
-
-        self.writeToFile(openSeaDetailItem)
-
-    def parseCollections(self, response):
-        for link in response.css('article.sc-82fdd4b8-6').css('a.sc-1f719d57-0::attr(href)'):
-            yield response.follow(link.get(), callback = self.parseEthereum)
-
-    def parse(self, response):
-        counter = 0
-        yield {
-            'scraped links': len(response.css('main.sc-29427738-0').css('div.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)'))
+            'ether scan scraped'
         }
 
-        for link in response.css('main.sc-29427738-0').css('div.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)'):
-            # yield response.follow(link.get(), callback = self.parseCollections)
-            yield {
-                'link': link.get()
+    def parse(self, response):
+        global etherCount
+        etherCount = 20
+
+        yield {
+                'scraped links': len(response.css('article.sc-6f4a9ed3-6').css('a.sc-1f719d57-0::attr(href)'))
             }
             
-            # counter += 1
+        for link in response.css('article.sc-6f4a9ed3-6').css('a.sc-1f719d57-0::attr(href)'):
+            yield response.follow(link.get(), callback = self.parseCollection)
+            
+            etherCount -= 1
 
-            # if counter == 100:
-            #     break
+        itemCollection = response.css('article.sc-6f4a9ed3-6').css('a.sc-1f719d57-0::attr(href)')
+        yield response.follow(itemCollection.get(), callback = self.parseEtherScan)
