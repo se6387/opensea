@@ -3,10 +3,13 @@ import os
 import scrapy
 
 from openseadetail.items import OpenSeaDetailItem
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 
-class OpenSeaCollectionSpider(scrapy.Spider):
+class OpenSeaCollectionSpider(CrawlSpider):
     flag = True
     etherCount = 0
+    etherscanLink = ''
 
     name = 'openseanftspider'
     urlToScrape = 'opensea.io'
@@ -83,30 +86,41 @@ class OpenSeaCollectionSpider(scrapy.Spider):
 
             self.writeToFile(openSeaDetailItem)
 
-    def parseEtherScan(self, response):
-        yield {
-            'ether scan': 'I AM HERE'
-        }
+        # etherscanLink = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
+        # yield {
+        #     'ether scan link': etherscanLink
+        # }
+        # yield response.follow(etherscanLink, callback = self.parseEtherScan)
 
-    def parseEthereum(Self, response):
+    # def parseEtherScan(self, response):
+    #     item = response.css('td').css('a.hash-tag::attr(href)')
+    #     yield {
+    #         'etsl': etherscanLink
+    #     }
+
+    def parseEthereum(self, response):
         item = response.css('div.sc-29427738-0')
+
+        global etherscanLink
+        etherscanLink = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
+
         yield {
-            'ether count': etherCount,
-            'Z Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
+            'ether scan link': etherscanLink
         }
 
-        yield response.follow(item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0], callback = parseEtherScan)
+        # yield response.follow(etherscanLink, callback = self.parseEtherScan)
 
     def parse(self, response):
         global etherCount
         etherCount = 0
 
         yield {
-                'scraped links': len(response.css('article.sc-6f4a9ed3-6').css('a.sc-1f719d57-0::attr(href)'))
-            }
+            'scraped links': len(response.css('article.sc-a4604e96-6').css('a.sc-1f719d57-0::attr(href)'))
+        }
 
-        yield response.follow(response.css('article.sc-6f4a9ed3-6').css('a.sc-1f719d57-0::attr(href)').extract()[0], callback = self.parseEthereum)
-            
-        for link in response.css('article.sc-6f4a9ed3-6').css('a.sc-1f719d57-0::attr(href)'):
+        ethereum = response.css('article.sc-a4604e96-6').css('a.sc-1f719d57-0::attr(href)').extract()[0]
+        yield response.follow(ethereum, callback = self.parseEthereum)
+
+        for link in response.css('article.sc-a4604e96-6').css('a.sc-1f719d57-0::attr(href)'):
             etherCount += 1
             yield response.follow(link.get(), callback = self.parseCollection)
