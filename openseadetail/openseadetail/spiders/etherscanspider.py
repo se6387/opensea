@@ -14,7 +14,6 @@ class EtherScanSpider(scrapy.Spider):
     with open('openseacollectiondetail.txt', 'rt') as f:
         etherscanLink = f.readline()
         etherscanLink = etherscanLink[19:]
-        print(etherscanLink)
     
     start_urls = [
         etherscanLink
@@ -27,12 +26,9 @@ class EtherScanSpider(scrapy.Spider):
     def __init__(self):
         self.deleteFileIfExists()
 
-        with open('openseacollectiondetail.txt', 'rt') as f:
-            etherscanLink = f.readline()
-            etherscanLink = etherscanLink[20]
-            print(etherscanLink)
-
     def parseEtherScan(self, response):
+        openSeaDetailItem = OpenSeaDetailItem()
+
         yield {
             'Transaction Hash': response.css('div.col-md-9').css('span.mr-1::text').get(),
             'Status': response.css('div.col').css('span.u-label::text').get(),
