@@ -39,7 +39,7 @@ class OpenSeaCollectionSpider(scrapy.Spider):
 
             f.write('Creator Earnings : ' + openSeaDetailItem['creatorEarnings'] + '\r\n\n\n')
 
-    def parseurls(self, response):
+    def parseCollectionDetail(self, response):
         openSeaDetailItem = OpenSeaDetailItem()
         item = response.css('div.sc-29427738-0')
 
@@ -91,5 +91,5 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             }
             
         for link in response.css('article.sc-a4604e96-6').css('a.sc-1f719d57-0::attr(href)'):
-            yield response.follow(link.get(), callback = self.parseurls)
+            yield response.follow(link.get(), callback = self.parseCollectionDetail)
             
