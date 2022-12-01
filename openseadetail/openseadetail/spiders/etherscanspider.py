@@ -65,7 +65,8 @@ class EtherScanSpider(scrapy.Spider):
         openSeaDetailItem['to'] = response.css('div.col-md-9').css('a.mr-1::text').extract()[1]
         openSeaDetailItem['value'] = str(response.css('div.col-md-9').css('span::text').extract()[7] + ' ' + response.css('div.col-md-9').css('span::text').extract()[8])
         openSeaDetailItem['transactionFee'] = str(response.css('div.col-md-9').css('span::text').extract()[9] + '.' + response.css('div.col-md-9').css('span::text').extract()[10],)
-        openSeaDetailItem['gasPrice'] = str(response.css('div.col-md-9').css('span::text').extract()[11] + response.css('div.col-md-9').css('span::text').extract()[12] + response.css('div.col-md-9').css('span::text').extract()[13])
+        fc = response.css('div.col-md-9').css('span::text').extract()[11]
+        openSeaDetailItem['gasPrice'] = str(fc[-1] + response.css('div.col-md-9').css('span::text').extract()[12] + response.css('div.col-md-9').css('span::text').extract()[13])
 
         self.writeToFile(openSeaDetailItem)
 
