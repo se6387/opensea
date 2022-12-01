@@ -52,7 +52,7 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             flag = True
             yield {
                 'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0],
-                'Token ID': item.css('span.sc-29427738-0').css('button.sc-b267fe84-0::text').extract()[1],
+                'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
                 # button.sc-b267fe84-0::text  a.sc-1f719d57-0::text
                 'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
                 'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
@@ -61,7 +61,7 @@ class OpenSeaCollectionSpider(scrapy.Spider):
             }
 
             openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
-            openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('button.sc-b267fe84-0::text').extract()[1]
+            openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
             # button.sc-b267fe84-0  a.sc-1f719d57-0::text
             openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
             openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
@@ -74,14 +74,14 @@ class OpenSeaCollectionSpider(scrapy.Spider):
 
             yield {
                 'Contract Address': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0],
-                'Token ID': item.css('span.sc-29427738-0').css('button.sc-b267fe84-0::text').extract()[1],
+                'Token ID': item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1],
                 # button.sc-b267fe84-0  a.sc-1f719d57-0::text
                 'Token Standard': item.css('span.sc-29427738-0::text').extract()[0],
                 'Block Chain': item.css('span.sc-29427738-0::text').extract()[1],
                 'Creator Earnings': item.css('span.sc-29427738-0::text').extract()[2]
             }
             openSeaDetailItem['contractAddress'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::attr(href)').extract()[0]
-            openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('button.sc-b267fe84-0::text').extract()[1]
+            openSeaDetailItem['tokenID'] = item.css('span.sc-29427738-0').css('a.sc-1f719d57-0::text').extract()[1]
             # button.sc-b267fe84-0  a.sc-1f719d57-0::text
             openSeaDetailItem['tokenStandard'] = item.css('span.sc-29427738-0::text').extract()[0]
             openSeaDetailItem['chain'] = item.css('span.sc-29427738-0::text').extract()[1]
