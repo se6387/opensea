@@ -5,15 +5,17 @@ import scrapy
 from openseadetail.items import OpenSeaDetailItem
 
 class EtherScanSpider(scrapy.Spider):
+    etherscanLink = ''
     name = 'etherscanspider'
     urlToScrape = 'etherscan.io'
     allowed_domains = [
         urlToScrape
     ]
 
-    with open('openseacollectiondetail.txt', 'rt') as f:
-        etherscanLink = f.readline()
-        etherscanLink = etherscanLink[19:]
+    if os.path.isfile('openseacollectiondetail.txt'):
+        with open('openseacollectiondetail.txt', 'rt') as f:
+            etherscanLink = f.readline()
+            etherscanLink = etherscanLink[19:]
     
     start_urls = [
         etherscanLink
@@ -61,11 +63,11 @@ class EtherScanSpider(scrapy.Spider):
         openSeaDetailItem['timestamp'] = response.css('div.row').css('div.col-md-9::text').extract()[8]
         openSeaDetailItem['fromF'] = response.css('div.col-md-9').css('a.mr-1::text').extract()[0]
         openSeaDetailItem['to'] = response.css('div.col-md-9').css('a.mr-1::text').extract()[1]
-        openSeaDetailItem['value'] = response.css('div.col-md-9').css('span::text').extract()[7] + ' ' + response.css('div.col-md-9').css('span::text').extract()[8]
-        openSeaDetailItem['transactionFee'] = response.css('div.col-md-9').css('span::text').extract()[9] + '.' + response.css('div.col-md-9').css('span::text').extract()[10],
-        openSeaDetailItem['gasPrice'] = response.css('div.col-md-9').css('span::text').extract()[11] + response.css('div.col-md-9').css('span::text').extract()[12] + response.css('div.col-md-9').css('span::text').extract()[13]
+        openSeaDetailItem['value'] = str(response.css('div.col-md-9').css('span::text').extract()[7] + ' ' + response.css('div.col-md-9').css('span::text').extract()[8])
+        openSeaDetailItem['transactionFee'] = str(response.css('div.col-md-9').css('span::text').extract()[9] + '.' + response.css('div.col-md-9').css('span::text').extract()[10],)
+        openSeaDetailItem['gasPrice'] = str(response.css('div.col-md-9').css('span::text').extract()[11] + response.css('div.col-md-9').css('span::text').extract()[12] + response.css('div.col-md-9').css('span::text').extract()[13])
 
-        
+        self.writeToFile(openSeaDetailItem)
 
     def parse(self, response):
         for link in response.css('td').css('a.hash-tag::attr(href)'):
