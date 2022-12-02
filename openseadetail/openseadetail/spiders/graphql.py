@@ -42,10 +42,9 @@ res = requests.request("POST", url, data = {
         }
     },
     headers = headers)
-# print(res.text.encode(encoding = 'UTF-8', errors = 'strict'))
-# dec = res.text.encode(encoding = 'UTF-8', errors = 'strict')
-# print('')
-# print(dec.decode('UTF-8', 'strict'))
+print(res.text)
+print('--------------------------------------------------------------------------------------------------------')
+print(res.text.encode(encoding = 'UTF-8', errors = 'strict'))
 
 if os.path.isfile('openseacollectiondetail.txt'):
     with open('openseacollectiondetail.txt', 'rt') as f:
