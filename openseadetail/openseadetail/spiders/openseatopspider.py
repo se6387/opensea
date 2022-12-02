@@ -58,3 +58,6 @@ class OpenSeaTopSpider(scrapy.Spider):
             openSeaDetailItem['creatorEarnings'] = item.css('span.sc-29427738-0::text').extract()[2]
 
             self.writeToFile(openSeaDetailItem)
+
+    def urlParser(self):
+        return 0
