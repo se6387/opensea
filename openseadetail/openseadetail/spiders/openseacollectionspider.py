@@ -91,9 +91,9 @@ class OpenSeaCollectionSpider(scrapy.Spider):
 
     def parse(self, response):
         yield {
-                'scraped links': len(response.css('article.sc-a4604e96-6').css('a.sc-1f719d57-0::attr(href)'))
+                'scraped links': len(response.css('article.sc-3789165d-6').css('a.sc-1f719d57-0::attr(href)'))
             }
             
-        for link in response.css('article.sc-a4604e96-6').css('a.sc-1f719d57-0::attr(href)'):
+        for link in response.css('article.sc-3789165d-6').css('a.sc-1f719d57-0::attr(href)'):
             yield response.follow(link.get(), callback = self.parseCollectionDetail)
             

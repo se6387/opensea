@@ -1,160 +1,144 @@
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 1289
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1705
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 8312
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 2483
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 1 hour ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 6929
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1703
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 6212
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 3020
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 11 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 1505
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1830
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 3475
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1706
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 6830
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 2495
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 2 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 2993
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1581
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 8800
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 73
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 11 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 8933
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1359
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 5480
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 940
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 2538
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 93
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 11 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 4073
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 638
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 11 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 8321
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 335
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 11 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 5013
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 357
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 11 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 8992
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 1440
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 3 hours ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 1695
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 3032
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 4 minutes ago
+Creator Earnings : 7.5%
 
 
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 5109
+Contract Address : https://etherscan.io/address/0x62d46d36e2b20af50fbc7fd9ac7c9356795c9e5f
+Token ID : 3029
 Token Standard : ERC-721
 Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
-
-
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 3605
-Token Standard : ERC-721
-Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
-
-
-Contract Address : https://etherscan.io/address/0x231d3559aa848bf10366fb9868590f01d34bf240
-Token ID : 7760
-Token Standard : ERC-721
-Chain : Ethereum
-Last Updated : 4 days ago
-Creator Earnings : 5%
+Last Updated : 8 minutes ago
+Creator Earnings : 7.5%
 
 
