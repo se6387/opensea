@@ -1,10 +1,10 @@
 import subprocess
 import os
 
+home_dir = os.system("cd ~")
+print("`cd ~` ran with exit code %d" % home_dir)
+unknown_dir = os.system("cd doesnotexist")
+print("`cd doesnotexis` ran with exit code %d" % unknown_dir)
+
 homeDir = os.system('cd ~')
 print('cd ~ run with exit code : %d'%homeDir)
-
-print('')
-
-list_files = subprocess.run(['ls', '-l'])
-# print('the exit code was %d'%list_files)
