@@ -38,8 +38,6 @@ def main(args):
 
     pbar.close()
 
-
-
     with open(f"{args.collection}.txt", "w") as output:
             for row in image_urls:
                 output.write(str(row) + '\n')
